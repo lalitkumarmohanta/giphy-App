@@ -1,0 +1,22 @@
+<div *ngIf="!showSpinner">
+  <section>
+    <div class="row">
+      <div style="margin-top: 1rem;" class="col" *ngFor="let gpy of listGpys ">
+
+        <a [routerLink]="['/giphy', gpy.id]">
+          <div class="card" style="width: 18rem;">
+            <img style="height: 10rem;" src="{{gpy.images.original_still.url}}" class="card-img-top img-thumbnail"
+              alt="...">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section style="text-align: center;color: burlywood;" *ngIf="listGpys.length==0">
+    No records found!
+  </section>
+</div>
+<div *ngIf="showSpinner" class="spinnerComponent">
+  <mat-progress-spinner style="margin: 0 auto;" class="example-margin" [color]="color" [mode]="mode" [value]="value">
+  </mat-progress-spinner>
+</div>
